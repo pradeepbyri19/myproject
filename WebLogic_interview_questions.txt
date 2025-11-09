@@ -1,218 +1,81 @@
 1. How many ways weblogic domain can be created ?
-
    3 ways
-
    1.GUI mode by invoking "config.sh" from weblogic home
-
    2. BY using WLST.
-
    3. By using "pack" and "unpack" scripts from WebLogic home
-
-
 2. Syntax for creating weblogic domain by using pack and unpack commands ?
-
-
   Answer:
-
          To create weblogic domain by using pack and unpack first we have to invoke pack.sh and 
-
 unpack.sh from WL_HOME
-
-
-
 pack.sh syntax:
-
    WL_HOME/common/bin/pack.sh -domain=domain -template=template -template_name=“template_name”[-template_author=“author”][-template_desc=“description”]
 [-managed={true|false}
-
-
-
 unpack.sh syntax:
-
 WL_HOME/common/bin/unpack.sh -template=wlscltemp.jar -domain=domains/wlscldom -log=wlscldomunpack.log -log_priority=INFO
-
-
-
-
 3. how to start manger server from command line ?
-
-
  Answer:
-
-
          ./startMangedWebLogic.sh   mangedservername  adminserverurl
-
-
 4. what are the reasons for server state in force_shutdown ? 
-
-
  Answer:
-
 	 1. application failure and resources failure which are deployed on that manged server
-
          2. Struck threads and hogging threads
-
          3. Unavilability of nodemanger
-
          4. Heap related issues
-
-
-                  
 5. What are diffrent modes of communication in cluster ?
-
-
   The communication in  WebLogic cluster is in two type
-
     1. Unicast mode
-
-
     2. multicast mode
-
  What is Unicast ?
-
    In unicast communication mode , one of the cluster member acts like lead server which recives the heart beats from remaing
   isntances to know their status.
-
    It is prefarable for large kind of networks.
-
-
  What is multicast ?
-
-
    IP multicast is a broadcast technology that enables multiple applications to subscribe to an IP address and port number
    and listen for messages.
-
- 
    Multicast Ip:224.0.0.0 – 239.255.255.255.
-
-
     It is preferable for small kind of networks.
-
-
-    
 6. How will you trouble shoot if you got an issue with datasource failure ?
-
-
     1. First we need to login admin console
-
     2. Verify the test connection to database from the faield datasource
-
     3. We have to check jdbc related things in the code with Dev team.
-
     4. We have to check various things related to jdbc connections
-
-
 7. what is ssl ? main steps in setting up ssl in weblogic ? how can you know the expire date of existing ssl ?
-
    SSL:
-
    Secure Sockets Layer (SSL) provides secure connections by allowing two applications connecting over a network connection
  to authenticate the other's identity and by encrypting the data exchanged between the applications.
-
-
   Steps to set up ssl in weblogic:
-
     1. Obtain an identity and trust for WebLogic server.
-
     2. Store the private keys, digital certificates, and trusted CA certificates.
-
     3. Configure the identity and trust keystores for weblogic server in Weblogic admin console.
-
     4. 4.Set SSL attributes for the private key alias and password in the WebLogic Server Administration Console
-
-  
   Expire date of ssl:
-
    It can be verifed on browser, By clicking on lock symol on https url.
-
-
-
 8. how can you take thred dumps ?
-
    Generally thread dumps can be taken differnt types, the general ways are
-
-
     1. By using [ kill -3 pid ] command
-
-
     2. By using [ jstack pid ] command
-
-
 9. how can you transfer files or folder from one linux machine to another linux machine ? and brief me one example ?
-
-
     By using "scp" command we can transfer files or folder from one linux machine to another machine.
-
-
-
 Syntax:
-  
 For example a file wants to transfer from source machine to destination machine then the syntax woule be below
-
-   
 [ scp filename destmachineuser@ipaddress:destinationfolder ]   ; and this command should be excuted from source machine
-
-
-
-
 10. How can you download a file from internet from the linux command prompt ?
-
-
-
  Answer:
-
     [ wget websiteurl ]
-
-
 11. How can you rename 100 string name at a time in the "vi" editor ?
-
-
-
 Answer:
-
     [ :%s/oldstring/newstring/g ]
-
-
 12. how can you know the running weblogic servers in the unix command prompt ?
-
-
 Answer:
-
         ps -ef | grep java
- 
- 
 13. How can you intigrate weblogic server with webserver ?
-
-
-
       1. First we need to copy the "wls_mod.so" file from the WL_HOME to webserver modules
-
-
       2. httpd.conf file needs to be edited according to the weblogic configurations
-
-
 14. how to verify the connection between weblogic hosted machine and database machine ?
-
-
 Answer:   telnet ipadress portnumber
-
     or 
-
-
   ping ipadress
-
-
 15. how can take backup old log files ?
-
-
-
  Answer: By using diffrent compression commands like tar, zip
-
-
    ex:
-
      [  tar -cvzf files file.tar ]
-
-  
-
-    
